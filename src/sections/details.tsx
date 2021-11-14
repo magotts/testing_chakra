@@ -9,10 +9,12 @@ import {
   VStack,
   Text,
   Checkbox,
-  Button
+  Button,
+  useBreakpointValue
 } from '@chakra-ui/react';
 
 const Details = () => {
+  const colSpan = useBreakpointValue({ base: 2, md: 1});
   return (
     <VStack
       w="full"
@@ -26,13 +28,13 @@ const Details = () => {
       <Text>If you already have an account, click here to login.</Text>
       </VStack>
       <SimpleGrid columns={2} columnGap={3} rowGap={6} w="full">
-        <GridItem colSpan={1}>
+        <GridItem colSpan={colSpan}>
             <FormControl>
               <FormLabel>First Name</FormLabel>
               <Input placeholder="John" />
             </FormControl>
         </GridItem>
-        <GridItem colSpan={1}>
+        <GridItem colSpan={colSpan}>
             <FormControl>
               <FormLabel>Last Name</FormLabel>
               <Input placeholder="Smith" />
@@ -44,13 +46,13 @@ const Details = () => {
               <Input placeholder="Blvd of Broken Dreams" />
             </FormControl>
         </GridItem>
-        <GridItem colSpan={1}>
+        <GridItem colSpan={colSpan}>
             <FormControl>
               <FormLabel>City</FormLabel>
               <Input placeholder="San Francisco" />
             </FormControl>
         </GridItem>
-        <GridItem colSpan={1}>
+        <GridItem colSpan={colSpan}>
             <FormControl>
               <FormLabel>Country</FormLabel>
               <Select>
@@ -66,7 +68,7 @@ const Details = () => {
             </Checkbox>
         </GridItem>
         <GridItem colSpan={2}>
-            <Button size="lg" w="full">Place Order</Button>
+            <Button colorScheme="brand" size="lg" w="full">Place Order</Button>
         </GridItem>
       </SimpleGrid>
     </VStack>
